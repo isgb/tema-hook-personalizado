@@ -1,10 +1,11 @@
 import './App.css';
-import { PruebasCustom } from './components/PruebasCustom';
+import { MiFormulario } from './components/MiFormulario';
 
 function App() {
   return (
     <div className="App">
-      <PruebasCustom/>
+      {/* <PruebasCustom/> */}
+      <MiFormulario/>
     </div>
   );
 }

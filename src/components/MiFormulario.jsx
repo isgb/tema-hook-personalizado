@@ -6,7 +6,7 @@ export const MiFormulario = () => {
         <h1>Formulario</h1>
         <p>Formulario para guardar un curso</p>
 
-        <form>
+        <form className='mi-formulario'>
             <input type="text" name='title' placeholder='Titulo:'/>
             <input type="number" name='anio' placeholder='Año Publicacion:'/>
             <textarea name="descripcion" placeholder='Decripcion'></textarea>
