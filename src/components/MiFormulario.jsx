@@ -6,13 +6,24 @@ export const MiFormulario = () => {
 
   const enviado = (e) =>{
     e.preventDefault()
-    console.log(e.target)
+    // console.log(e.target)
+
+    let curso = {
+      titulo: e.target.title.value ,
+      anio: e.target.anio.value,
+      descripcion: e.target.descripcion.value,
+      autor: e.target.autor.value,
+      email: e.target.email.value
+    };
+
+    setFormulario(curso)
   }
 
   return (
     <div>
         <h1>Formulario</h1>
         <p>Formulario para guardar un curso</p>
+        {JSON.stringify(formulario)}
 
         <form onSubmit={enviado} className='mi-formulario'>
             <input type="text" name='title' placeholder='Titulo:'/>
