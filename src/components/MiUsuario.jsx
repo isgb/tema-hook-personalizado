@@ -1,35 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useAjax } from '../hooks/useAjax'
 
 export const MiUsuario = () => {
 
-    const [usuario, setUsuario] = useState({
-        datos: null
-    });
+    const [url, setUrl] = useState("https://reqres.in/api/users/1")
+    const {datos,cargando} = useAjax(url)
 
-    const getUsuario = async(url) => {
-        const peticion = await fetch(url)
-
-        const data = await peticion.json();
-
-        console.log(data.data)
-
-        setUsuario({
-            datos: data.data
-        })
-    }
-    
     const getId = e => {
         let id = parseInt(e.target.value)
-        let url = "https://reqres.in/api/users/"+id
+        setUrl("https://reqres.in/api/users/"+id)
 
-        getUsuario(url)
+        // getUsuario(url)
     }
 
   return (
     <div>
         <h1>Mi usuario:</h1>
         <p>Datos del usuario</p>
-        <p>{usuario?.datos?.first_name} {usuario?.datos?.last_name}</p>
+        <p>{ cargando ? "Cargando..." : ""}</p>
+        <p>{datos?.first_name} {datos?.last_name}</p>
         <input type="number" name='id' onChange={ getId }/>
     </div>
   )
